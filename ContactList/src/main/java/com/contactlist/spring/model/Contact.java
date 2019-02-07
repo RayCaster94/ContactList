@@ -1,73 +1,68 @@
 package com.contactlist.spring.model;
 
-import java.util.List;
+import java.util.Date;
+
 
 public class Contact {
 
 	private int contactId;
 	private String contactName;
 	private String contactSurname;
-	private Address address;
-	List<Phone> phoneList;
-	private City city;
+	private String contactLastSurname;
+	private String dni;
+	private Date birthDate;
+	
 	
 	public Contact() {
 		
 	}
 
+	
 	public int getContactId() {
 		return contactId;
 	}
-
 	public void setContactId(int contactId) {
 		this.contactId = contactId;
 	}
-
 	public String getContactName() {
 		return contactName;
 	}
-
 	public void setContactName(String contactName) {
 		this.contactName = contactName;
 	}
-
 	public String getContactSurname() {
 		return contactSurname;
 	}
-
 	public void setContactSurname(String contactSurname) {
 		this.contactSurname = contactSurname;
 	}
-
-	public Address getAddress() {
-		return address;
+	public String getContactLastSurname() {
+		return contactLastSurname;
 	}
-
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setContactLastSurname(String contactLastSurname) {
+		this.contactLastSurname = contactLastSurname;
 	}
-
-	public List<Phone> getPhoneList() {
-		return phoneList;
+	public String getdni() {
+		return dni;
 	}
-
-	public void setPhoneList(List<Phone> phoneList) {
-		this.phoneList = phoneList;
+	public void setDNI(String dni) {
+		this.dni = dni;
 	}
-
-	public City getCity() {
-		return city;
+	public Date getBirthDate() {
+		return birthDate;
 	}
-
-	public void setCity(City city) {
-		this.city = city;
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "Contact [contactId=" + contactId + ", contactName=" + contactName + ", contactSurname=" + contactSurname
-				+ ", address=" + address + ", phoneList=" + phoneList + ", city=" + city + "]";
+				+ ", contactLastSurname=" + contactLastSurname + ", DNI=" + dni + ", birthDate=" + birthDate + "]";
 	}
+
+
 	
 	
 	
