@@ -1,5 +1,8 @@
 package com.contactlist.spring.model;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,75 +11,74 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "direccion")
-public class Address {
+public class Address implements Serializable {
+	
+	private static final long serialVersion = 1L;
 
 	private int addressId;
 	private String addressName;
 	private int postalCode;
 	private String town;
 	
-	private City idCity;  //idprovincia
-	private Contact idContact; //idpersona 
+	//conexiones
+	private City City;  //idprovincia
+	private List<Contact> Contact;
+	private List<Phone> phoneList;
+	
 	
 	
 	//GETTERS AND SETTERS
 	
-	@Id
-	@GeneratedValue
-	@Column(name = "iddireccion")
+		@Id
+		@GeneratedValue
+		@Column(name = "iddireccion")
 	public int getAddressId() {
 		return addressId;
 	}
 	public void setAddressId(int addressId) {
 		this.addressId = addressId;
 	}
-	
-	@Column(name = "direccion")
 	public String getAddressName() {
 		return addressName;
 	}
 	public void setAddressName(String addressName) {
 		this.addressName = addressName;
 	}
-	
-	@Column(name = "codpostal")
 	public int getPostalCode() {
 		return postalCode;
 	}
 	public void setPostalCode(int postalCode) {
 		this.postalCode = postalCode;
 	}
-	
-	@Column(name = "localidad")
 	public String getTown() {
 		return town;
 	}
 	public void setTown(String town) {
 		this.town = town;
 	}
-	
-	@Column(name = "idprovincia")
-	public City getIdCity() {
-		return idCity;
+	public City getCity() {
+		return City;
 	}
-	public void setIdCity(City idCity) {
-		this.idCity = idCity;
+	public void setCity(City city) {
+		City = city;
 	}
-	
-	@Column(name = "idpersona")
-	public Contact getIdContact() {
-		return idContact;
+	public List<Contact> getContact() {
+		return Contact;
 	}
-	public void setIdContact(Contact idContact) {
-		this.idContact = idContact;
-	}
-	
+	public void setContact(List<Contact> contact) {
+		Contact = contact;
+	} 
 	
 	@Override
 	public String toString() {
 		return "Address [addressId=" + addressId + ", addressName=" + addressName + ", postalCode=" + postalCode
-				+ ", town=" + town + ", idCity=" + idCity + ", idContact=" + idContact + "]";
+				+ ", town=" + town + ", City=" + City + ", Contact=" + Contact + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 	

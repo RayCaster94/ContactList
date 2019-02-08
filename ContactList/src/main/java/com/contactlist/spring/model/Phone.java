@@ -1,5 +1,6 @@
 package com.contactlist.spring.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,20 +12,26 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "telefono")
-public class Phone {
+public class Phone implements  Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private int phoneId;
 	private int phoneNumber;
-	private Contact contactId;
 	
+	//conexiones
+	private Contact contact;
+	private Address address;
+	private City city;
 	
+	 
 	public Phone() {
 		
 	}
 
-    @Id
-    @GeneratedValue
-    @Column(name = "idtelefono")
+	 @Id
+	    @GeneratedValue
+	    @Column(name = "idtelefono")
 	public int getPhoneId() {
 		return phoneId;
 	}
@@ -34,7 +41,7 @@ public class Phone {
 		this.phoneId = phoneId;
 	}
 
-    @Column(name = "telefono")
+
 	public int getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -44,22 +51,43 @@ public class Phone {
 		this.phoneNumber = phoneNumber;
 	}
 
-    @Column(name = "idpersona")
-	public Contact getcontactId() {
-		return contactId;
+
+	public Contact getContact() {
+		return contact;
 	}
 
 
-	public void setIdContact(Contact contactId) {
-		this.contactId= contactId;
+	public void setContact(Contact contact) {
+		this.contact = contact;
 	}
 
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
+	public City getCity() {
+		return city;
+	}
+
+
+	public void setCity(City city) {
+		this.city = city;
+	}
 
 	@Override
 	public String toString() {
-		return "Phone [phoneId=" + phoneId + ", phoneNumber=" + phoneNumber + ", idContact=" + contactId + "]";
+		return "Phone [phoneId=" + phoneId + ", phoneNumber=" + phoneNumber + ", contact=" + contact + ", address="
+				+ address + ", city=" + city + "]";
 	}
 
+  
 	
 	
 }
