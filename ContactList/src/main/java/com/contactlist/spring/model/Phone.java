@@ -2,6 +2,15 @@ package com.contactlist.spring.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "telefono")
 public class Phone {
 
 	private int phoneId;
@@ -13,7 +22,9 @@ public class Phone {
 		
 	}
 
-
+    @Id
+    @GeneratedValue
+    @Column(name = "idtelefono")
 	public int getPhoneId() {
 		return phoneId;
 	}
@@ -23,7 +34,7 @@ public class Phone {
 		this.phoneId = phoneId;
 	}
 
-
+    @Column(name = "telefono")
 	public int getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -33,7 +44,7 @@ public class Phone {
 		this.phoneNumber = phoneNumber;
 	}
 
-
+    @Column(name = "idpersona")
 	public Contact getcontactId() {
 		return contactId;
 	}

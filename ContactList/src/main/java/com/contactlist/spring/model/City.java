@@ -1,7 +1,13 @@
 package com.contactlist.spring.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name = "provincia")
 public class City {
 
 	private int cityId;
@@ -11,7 +17,9 @@ public class City {
 		
 		
 	}
-
+    @Id
+    @GeneratedValue
+    @Column(name = "idprovincia")
 	public int getCityId() {
 		return cityId;
 	}
@@ -19,7 +27,8 @@ public class City {
 	public void setCityId(int cityId) {
 		this.cityId = cityId;
 	}
-
+	
+    @Column(name = "provincia")
 	public String getCityName() {
 		return cityName;
 	}
