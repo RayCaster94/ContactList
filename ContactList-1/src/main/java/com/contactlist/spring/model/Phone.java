@@ -6,88 +6,76 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "telefono")
-public class Phone implements  Serializable {
+//@NamedQuery(name="Telefono.findAll", query="SELECT t FROM Telefono t")
+public class Phone implements Serializable  {
 
+	    /**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-	
+		@Id
+	    @GeneratedValue(strategy=GenerationType.AUTO)
+	    @Column(name = "idtelefono")
 	private int phoneId;
-	private int phoneNumber;
+	    @Column(name = "telefono")
+	private String phoneNumber;
 	
-	//conexiones
+	
+	
+	//bi-directional many-to-one association to Persona
+		@ManyToOne
+		@JoinColumn(name="idpersona")
 	private Contact contact;
-	private Address address;
-	private City city;
 	
-	 
 	public Phone() {
 		
 	}
 
-	 @Id
-	    @GeneratedValue
-	    @Column(name = "idtelefono")
 	public int getPhoneId() {
 		return phoneId;
 	}
-
 
 	public void setPhoneId(int phoneId) {
 		this.phoneId = phoneId;
 	}
 
-
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
 
 	public Contact getContact() {
 		return contact;
 	}
 
-
 	public void setContact(Contact contact) {
 		this.contact = contact;
 	}
 
-
-	public Address getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-
-	public City getCity() {
-		return city;
-	}
-
-
-	public void setCity(City city) {
-		this.city = city;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "Phone [phoneId=" + phoneId + ", phoneNumber=" + phoneNumber + ", contact=" + contact + ", address="
-				+ address + ", city=" + city + "]";
+		return "Phone [phoneNumber]";
 	}
+	
+	
 
-  
+
+
+
 	
 	
 }
